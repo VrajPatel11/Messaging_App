@@ -11,7 +11,7 @@ before_action :require_user
   private
 
   def message_params
-    params.require(:message).permit(:body)
+    params.require(:message).permit(:body, :remove_cover_picture, :cover_picture)
   end
 
   def message_render(message)

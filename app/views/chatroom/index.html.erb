@@ -13,6 +13,15 @@
       </div>
       <div class="extra content">
          <%= form_for(@message, html: { class: "ui reply form"}, url: message_path, remote: true) do |f| %>
+           <div class='form-group'>
+              <%= f.label :cover_picture %>
+              <%= f.file_field :cover_picture %>
+
+              <% if @message.cover_picture.attached? %>
+                <%= f.label :remove_cover_picture %>
+                <%= f.check_box :remove_cover_picture %>
+              <% end %>
+           </div>
            <div class="field">
              <div class="ui fluid icon input">
                <%= f.text_field :body %>
